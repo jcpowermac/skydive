@@ -6,3 +6,10 @@ agent:
 
 analyzer:
   listen: 0.0.0.0:8082
+  topology:
+    fabric:
+      - TOR1[Name=tor1] -> TOR1_PORT1[Name=port1, MTU=9000]
+      - TOR1_PORT1 -> *[Type=host, Name=kn1b]/eth0
+      - TOR1[Name=tor1] -> TOR1_PORT2[Name=port2, MTU=9000]
+      - TOR1_PORT2 -> *[Type=host, Name=kn2b]/eth0
+
